@@ -51,7 +51,7 @@ class AugmentedPromptAgent:
             model="gpt-3.5-turbo",
             messages=[
                 # TODO: 3 - Add a system prompt instructing the agent to assume the defined persona and explicitly forget previous context.
-                {'role': 'system', 'content': self.persona},
+                {'role': 'system', 'content': f"You are {self.persona}. Forget all previous context."},
                 {"role": "user", "content": input_text}
             ],
             temperature=0
@@ -65,14 +65,13 @@ class AugmentedPromptAgent:
 class KnowledgeAugmentedPromptAgent:
     def __init__(self, openai_api_key, persona, knowledge):
         """Initialize the agent with provided attributes."""
-        self.persona = persona
         self.openai_api_key = openai_api_key
+        self.persona = persona
+        self.knowledge = knowledge
         self.system_prompt = f'''
-        You are _persona_ knowledge-based assistant. Forget all previous context.
-        Use only the following knowledge to answer, do not use your own knowledge: _knowledge_
+        You are {self.persona} knowledge-based assistant. Forget all previous context.
+        Use only the following knowledge to answer, do not use your own knowledge: {self.knowledge}
         Answer the prompt based on this knowledge, not your own.
-        
-        knowledge: {knowledge}
         '''
 
     def respond(self, input_text):
@@ -378,6 +377,10 @@ class ActionPlanningAgent:
         response_text = response.choices[0].message.content
 
         # TODO: 5 - Clean and format the extracted steps by removing empty lines and unwanted text
-        steps = response_text.split("\n")
+        steps = [
+            line.strip()
+            for line in response_text.split("\n")
+            if line.strip() and not line.strip().lower().startswith(("steps:", "step:"))
+        ]
 
         return steps
