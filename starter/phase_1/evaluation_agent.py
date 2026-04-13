@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 
-from starter.phase_1.workflow_agents.base_agents import KnowledgeAugmentedPromptAgent, EvaluationAgent
+from workflow_agents.base_agents import KnowledgeAugmentedPromptAgent, EvaluationAgent
 
 # Load environment variables
 load_dotenv()

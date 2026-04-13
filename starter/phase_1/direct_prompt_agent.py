@@ -3,7 +3,7 @@
 import os
 from dotenv import load_dotenv
 
-from starter.phase_1.workflow_agents.base_agents import DirectPromptAgent
+from workflow_agents.base_agents import DirectPromptAgent
 
 # Load environment variables from .env file
 load_dotenv()
@@ -24,5 +24,9 @@ if __name__ == "__main__":
     print(direct_agent_response)
 
     # TODO: 5 - Print an explanatory message describing the knowledge source used by the agent to generate the response
-    direct_agent_response = direct_agent.respond(f"give me an explanatory message describing the source of the response {direct_agent_response}")
-    print(direct_agent_response)
+    print(
+        "This response is generated using the general knowledge built into the "
+        "LLM (gpt-3.5-turbo) itself. The DirectPromptAgent sends no system "
+        "prompt and no external knowledge, so the answer comes purely from the "
+        "model's pretraining data rather than any provided knowledge source."
+    )

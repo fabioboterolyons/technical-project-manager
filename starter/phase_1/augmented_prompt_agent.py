@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 
-from starter.phase_1.workflow_agents.base_agents import AugmentedPromptAgent
+from workflow_agents.base_agents import AugmentedPromptAgent
 
 # Load environment variables from .env file
 load_dotenv()

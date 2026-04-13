@@ -1,0 +1,37 @@
+/Users/fbotero/learning/udacity/Agentic AI/technical_project_manager_agent/.venv/lib/python3.14/site-packages/openai/_compat.py:48: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.typing import (
+/Users/fbotero/learning/udacity/Agentic AI/technical_project_manager_agent/starter/phase_1/workflow_agents/base_agents.py:198: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df['embeddings'] = df['text'].apply(self.get_embedding)
+What is the podcast that Clara hosts about?
+/Users/fbotero/learning/udacity/Agentic AI/technical_project_manager_agent/starter/phase_1/workflow_agents/base_agents.py:214: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df['embeddings'] = df['embeddings'].apply(lambda x: np.array(eval(x)))
+/Users/fbotero/learning/udacity/Agentic AI/technical_project_manager_agent/starter/phase_1/workflow_agents/base_agents.py:215: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df['similarity'] = df['embeddings'].apply(lambda emb: self.calculate_similarity(prompt_embedding, emb))
+Dear students, Clara hosts a podcast called "Crosscurrents" that explores the intersection of science, culture, and ethics. Each week, she interviews researchers, engineers, artists, and activists to delve into various topics within these realms.

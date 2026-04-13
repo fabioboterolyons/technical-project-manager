@@ -3,7 +3,7 @@ import os
 
 from dotenv import load_dotenv
 
-from starter.phase_1.workflow_agents.base_agents import ActionPlanningAgent
+from workflow_agents.base_agents import ActionPlanningAgent
 
 # TODO: 2 - Load environment variables and define the openai_api_key variable with your OpenAI API key
 
